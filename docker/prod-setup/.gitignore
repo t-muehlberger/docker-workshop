@@ -1,1 +1,3 @@
- secrets.env
+data/backup
+data/mariadb
+secrets.env

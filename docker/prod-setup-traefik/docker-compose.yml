@@ -13,10 +13,15 @@ services:
       - DB_NAME=mysqldb
       - DB_USER=root
       - DB_PASSWORD=rootpwd
-    ports:
-      - 3001:3000
+    labels:
+      - "traefik.backend=hello-nest"
+      - "traefik.docker.network=traefik"
+      - "traefik.frontend.rule=Host:hello-nest.example.com"
+      - "traefik.enable=true"
+      - "traefik.port=3000"
     networks:
       - internal-net
+      - traefik
     depends_on:
       - mariadb
     restart: unless-stopped
@@ -35,3 +40,5 @@ services:
     restart: unless-stopped
 networks:
   internal-net:
+  traefik:
+    external: true
