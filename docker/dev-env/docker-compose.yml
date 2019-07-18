@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  node:
+    image: node:10
+    environment:
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_NAME=mysqldb
+      - DB_USER=root
+      - DB_PASSWORD=rootpwd
+    ports:
+      - 3000:3000
+    depends_on:
+      - mariadb
+    user: ${CURRENT_UID}
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./../../:/app
+    working_dir: /app
+    command: '/bin/bash -c "npm install && npm run start:dev"'
+  mariadb:
+    image: mariadb:10.4
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpwd
+      - MYSQL_DATABASE=mysqldb
+      - MYSQL_USER=mysqluser
+      - MYSQL_PASSWORD=mysqlpwd
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    logging:
+      driver: none

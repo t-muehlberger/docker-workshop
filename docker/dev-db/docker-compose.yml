@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  mariadb:
+    image: mariadb:10.4
+    ports:
+      - 127.0.0.1:33306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpwd
+      - MYSQL_DATABASE=mysqldb
+      - MYSQL_USER=mysqluser
+      - MYSQL_PASSWORD=mysqlpwd
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
