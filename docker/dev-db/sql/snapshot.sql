@@ -27,7 +27,7 @@ CREATE TABLE `todo` (
   `name` varchar(500) NOT NULL,
   `done` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `todo` (
 
 LOCK TABLES `todo` WRITE;
 /*!40000 ALTER TABLE `todo` DISABLE KEYS */;
-INSERT INTO `todo` VALUES (1,'Dockerize',1),(2,'Dockerize',0),(3,'Dockerize',0),(4,'Dockerize',0),(5,'Dockerize',1);
+INSERT INTO `todo` VALUES (1,'First TODO',1),(2,'Second TODO',1),(3,'Third TODO',0);
 /*!40000 ALTER TABLE `todo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-16 12:38:59
+-- Dump completed on 2019-07-18  9:23:14
